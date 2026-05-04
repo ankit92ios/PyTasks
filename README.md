@@ -1,2 +1,2 @@
-# PyTasks
-Python Tasks
+🚀 PyTasks
+Some Tasks done in Pyton whie learning python programming

@@ -1,6 +1,5 @@
 """
-Create 3 classes with interconnection between them (Student, Teacher,
-Homework)
+Create 3 classes with interconnection between them (Student, Teacher, Homework)
 Use datetime module for working with date/time
 1. Homework takes 2 attributes for __init__: tasks text and number of days to complete
 Attributes:
@@ -27,18 +26,37 @@ PEP8 comply strictly.
 """
 import datetime
 
-
-class Teacher:
-    ...
-
+class Homework:
+    
+    def __init__(self, text: str, days_to_complete: int):
+        self.text = text
+        self.deadline = datetime.timedelta(days=days_to_complete)
+        self.created = datetime.datetime.now()
+    
+    def is_active(self) -> bool:
+        return datetime.datetime.now() < self.created + self.deadline
 
 class Student:
-    ...
+    
+    def __init__(self, fist_name: str, last_name: str):
+        self.first_name = fist_name
+        self.last_name = last_name
+    
+    def do_homework(self, homework: Homework):
+        if homework.is_active():
+            return homework
+        print("You are late")
+        return None
 
-
-class Homework:
-    ...
-
+class Teacher:
+    def __init__(self, first_name: str, last_name: str):
+        self.first_name = first_name
+        self.last_name = last_name
+    
+    @staticmethod
+    def create_homework(text: str, days_to_complete: int) -> Homework:
+        return Homework(text, days_to_complete)
+        
 
 if __name__ == '__main__':
     teacher = Teacher('Dmitry', 'Orlyakov')

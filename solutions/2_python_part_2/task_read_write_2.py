@@ -22,3 +22,18 @@ def generate_words(n=20):
         words.append(word)
 
     return words
+
+def write_files(words):
+    #UTF8
+    with open("file_1.txt", "w", encoding= "utf-8") as f1:
+        f1.write("\n".join(words))
+    
+    #CP1252
+    with open("file_2.txt", "w", encoding= "CP1252") as f2:
+        f2.write(",".join(reversed(words)))
+
+words = generate_words(20)
+write_files(words)
+# write_files(generate_words(0))
+# write_files(generate_words(100))
+# write_files(generate_words(1000))

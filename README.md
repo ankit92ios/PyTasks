@@ -1,3 +1,3 @@
 🚀 PyTasks
 
-Some Tasks done in Python whie learning python language
+Some Tasks done in Python while learning python language
